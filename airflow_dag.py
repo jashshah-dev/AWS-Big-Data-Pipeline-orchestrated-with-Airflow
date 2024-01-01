@@ -3,8 +3,8 @@ import logging
 import airflow
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
-# from airflow.contrib.operators.snowflake_operator import SnowflakeOperator
-# from airflow.contrib.hooks.snowflake_hook import SnowflakeHook
+from airflow.contrib.operators.snowflake_operator import SnowflakeOperator
+from airflow.contrib.hooks.snowflake_hook import SnowflakeHook
 from airflow.operators.bash_operator import BashOperator
 from datetime import datetime, timedelta
 from time import sleep
@@ -25,7 +25,7 @@ dag = DAG(
 
 
 # Boto3 client for EMR
-client = boto3.client('emr', region_name='us-west-2', aws_access_key_id='AKIATFYN2XYJLP6P2HLY', aws_secret_access_key='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')
+client = boto3.client('emr', region_name='us-west-2', aws_access_key_id='', aws_secret_access_key='')
 
 def create_emr_cluster():
     """
