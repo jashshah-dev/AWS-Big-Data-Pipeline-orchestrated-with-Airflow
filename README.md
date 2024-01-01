@@ -4,6 +4,29 @@ A robust data pipeline leveraging Amazon EMR and PySpark, orchestrated seamlessl
 ## Architecture Diagram
 ![image](https://github.com/jashshah-dev/AWS-Big-Data-Pipeline-orchestrated-with-Airflow/assets/132673402/7d79d182-d653-452a-a6f2-0ecd5698ae72)
 
+# Airflow DAG for AWS EMR Automation - Project Summary
+
+## Overview
+
+This project leverages Apache Airflow to automate Extract, Transform, Load (ETL) processes on AWS Elastic MapReduce (EMR). The primary focus is on creating a transient EMR cluster, performing data ingestion and transformation tasks using Spark, and then terminating the cluster to optimize costs.
+
+## Key Components
+
+1. **Transient EMR Cluster:**
+   - The DAG adopts a transient EMR cluster model, creating clusters on-demand and terminating them after task completion to minimize resource costs.
+
+2. **EMR Cluster Configuration:**
+   - The DAG dynamically configures EMR clusters with specified instance groups, roles, and applications.
+
+3. **Data Ingestion and Transformation:**
+   - Two Spark job steps (`ingest_layer` and `transform_layer`) are added to the EMR cluster for data ingestion and transformation, respectively.
+
+4. **Polling Mechanism:**
+   - Polling tasks (`poll_step_layer` and `poll_step_layer2`) wait for the completion of Spark job steps, periodically checking the EMR step status.
+
+5. **Termination Task:**
+   - The DAG includes a task (`terminate_emr_cluster`) to terminate the EMR cluster, ensuring cost-effectiveness.
+
 ## Code Explanation
 
  # Dataset to S3 with AWS CLI
