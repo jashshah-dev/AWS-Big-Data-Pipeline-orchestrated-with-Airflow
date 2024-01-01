@@ -97,7 +97,5 @@ The DAG consists of the following steps:
 
 - Ensure that the S3 paths, script names, and EMR configurations in the DAG match your setup.
 
-## License
 
-This script is provided under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
